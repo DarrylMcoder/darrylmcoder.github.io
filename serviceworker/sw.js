@@ -7,7 +7,13 @@ self.addEventListener('activate', function(event){
 });
 
 self.addEventListener('fetch', function(event) {          
-  if (/\.png$/.test(event.request.url)) {                 
-    event.respondWith(fetch('./images/unicorn.png'));      
-  }
+  event.respondWith(async function() {
+    const request = event.request;
+    return fetch(getRealUrl(request.url), request);
+  });
 });
+
+function getRealUrl(url) {
+  const parts = url.split("/darrylmcoder-proxy/");
+  return parts[1].trim();
+}
