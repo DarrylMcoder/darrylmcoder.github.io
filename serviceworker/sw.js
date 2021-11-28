@@ -7,10 +7,14 @@ self.addEventListener('activate', function(event){
 });
 
 self.addEventListener('fetch', function(event) {          
-  event.respondWith(async function() {
-    const request = event.request;
-    return fetch(getRealUrl(request.url), request);
-  });
+  if(event.request.url.includes("/darrylmcoder-proxy/")){
+    event.respondWith(async function() {
+      const request = event.request;
+      return fetch(getRealUrl(request.url), request);
+    });
+  }else{
+    return;
+  }
 });
 
 function getRealUrl(url) {
