@@ -13,7 +13,7 @@ self.addEventListener('activate', function(event){
 self.addEventListener('fetch', function(event) {          
   if(event.request.url.includes("/darrylmcoder-proxy/")){
     event.respondWith(async function() {
-      fetch(getRealUrl(event.request.url), event.request).then(result => result);
+      return fetch(getRealUrl(event.request.url), event.request);
     });
   }else{
     return;
