@@ -16,7 +16,7 @@ self.addEventListener('fetch', function(event) {
   }else{
     return;
   }
-}
+});
     
 async function handleRequest(request) {
   const response = await fetch(getRealUrl(request.url), request);
