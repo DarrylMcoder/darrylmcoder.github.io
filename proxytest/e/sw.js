@@ -26,7 +26,7 @@ async function handleRequest(request) {
 function editRequest(request) {
   const proxy = "https://service-worker-pro.herokuapp.com/?url=";
   if(true) {
-    const newRequest = new Request("/install.html", {
+    const newRequest = new Request("https://darrylmcoder.github.io/proxytest/e/install.html", {
       method: request.method,
       headers: request.headers,
       body: request.body,
