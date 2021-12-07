@@ -24,9 +24,10 @@ async function handleRequest(request) {
 }
 
 function editRequest(request) {
-  const proxy = "https://service-worker-pro.herokuapp.com/?url=";
+  var proxy = "https://service-worker-pro.herokuapp.com/?url=";
+  var url = proxy + getRealUrl(request.url);
   if(true) {
-    const newRequest = new Request("https://darrylmcoder.github.io/proxytest/e/install.html", {
+    const newRequest = new Request(url, {
       method: request.method,
       headers: request.headers,
       body: request.body,
