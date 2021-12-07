@@ -24,8 +24,7 @@ async function handleRequest(request) {
 }
 
 async function editRequest(request) {
-  return "test.html?url=" + await getRealUrl(request.url);
-  var proxy = "https://service-worker-pro.herokuapp.com/?url=";
+  var proxy = "test.html?url=";
   var url = proxy + await getRealUrl(request.url);
   if(true) {
     const newRequest = new Request(url, {
