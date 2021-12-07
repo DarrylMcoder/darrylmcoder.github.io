@@ -19,12 +19,32 @@ self.addEventListener('fetch', function(event) {
 });
     
 async function handleRequest(request) {
-  const response = await fetch(getRealUrl(request.url), request);
+  const response = await fetch(await editRequest(request));
   return response;
 }
 
+async function editRequest(request) {
+  return "test.html";
+  var proxy = "https://service-worker-pro.herokuapp.com/?url=";
+  var url = proxy + await getRealUrl(request.url);
+  if(true) {
+    const newRequest = new Request(url, {
+      method: request.method,
+      headers: request.headers,
+      body: request.body,
+      credentials: request.credentials,
+      cache: request.cache,
+      redirect: request.redirect,
+      referrer: request.referrer,
+      integrity: request.integrity
+    });
+    return newRequest;
+  }else{
+   
+  }
+}
 
-function getRealUrl(url) {
+async function getRealUrl(url) {
   const parts = url.split("/darrylmcoder-proxy/");
   return parts[1].trim();
 }
