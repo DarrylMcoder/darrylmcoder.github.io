@@ -24,7 +24,7 @@ async function handleRequest(request) {
 }
 
 async function editRequest(request) {
-  var proxy = "test.html?url=";
+  var proxy = "./?url=";
   var url = proxy + await getRealUrl(request.url);
   if(true) {
     const newRequest = new Request(url, {
