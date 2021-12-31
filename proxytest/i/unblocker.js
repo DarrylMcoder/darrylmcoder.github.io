@@ -45,6 +45,9 @@ var unblocker = function(config) {
       data.stream
         .pipeThrough(new TextEncoderStream())
         .pipeTo(resthru.writable);
+    }).catch(e => {
+      event.respondWith(new Response("Error: " + e));
     });
   }
+  return unblock;
 }
