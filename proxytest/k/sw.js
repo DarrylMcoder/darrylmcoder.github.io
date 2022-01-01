@@ -1,6 +1,7 @@
 self.importScripts('caesarShift.js');
 self.importScripts('https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js');
 self.importScripts('unblocker.js');
+self.importScripts('decodeContent.js');
 
 self.addEventListener('install', function(event){
       // Skip over the "waiting" lifecycle state, to ensure that our
