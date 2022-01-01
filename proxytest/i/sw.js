@@ -19,6 +19,12 @@ self.addEventListener('fetch',unblocker({
     
   ],
   responseMiddleware: [
-    
+    decodeContent({
+      processContentTypes:[
+        "text/html",
+        "text/css",
+        "text/javascript"
+      ],
+    }),
   ],
 }));
