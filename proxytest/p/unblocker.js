@@ -4,7 +4,7 @@ var unblocker = function(config) {
       var request = {...event.request};
       var url = request.url;
       var headers = {...event.request.headers};
-      if(typeof event.request.body != undefined) {
+      if(event.request.body) {
         var stream = event.request.body
         .pipeThrough(
           new TextDecoderStream(
