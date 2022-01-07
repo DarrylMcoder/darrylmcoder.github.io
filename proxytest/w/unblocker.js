@@ -41,14 +41,20 @@ var unblocker = function(config) {
       .pipeThrough(new TextEncoderStream())
       .pipeTo(reqthru.writable);
       
-      /*//just for testing
+      ///just for testing
       var test = 'Data: '; 
       test += JSON.stringify(data);
       test += 'reqInit: ';
       test += JSON.stringify(reqInit);
       test += 'Request: ';
       test += JSON.stringify(request);
-      returnError(test, event);
+       event.waitUntil(
+         self.registration.showNotification("Data", {
+        body: test,
+        data: data
+      })
+  );
+      //returnError(test, event);
       
       //*/
       var newReq = new Request(reqInit.url, reqInit);
